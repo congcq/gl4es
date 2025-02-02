@@ -244,7 +244,7 @@ SET(EGL_H
 
 if(EGL_WRAPPER)
     add_library(EGL SHARED ${EGL_SRC})
-    target_link_libraries(EGL GL dl)
+    target_link_libraries(EGL dl)
     if(USE_ANDROID_LOG)
         target_link_libraries(EGL ${log-lib})
     endif()
