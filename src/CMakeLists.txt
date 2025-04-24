@@ -224,6 +224,8 @@ else()
             "-F../../external"
             "-framework libEGL"
             "-framework libGLESv2"
+        )
+    endif()
     
     if(CMAKE_SHARED_LIBRARY_SUFFIX MATCHES ".so")
         set_target_properties(GL PROPERTIES SUFFIX ".so.1")
