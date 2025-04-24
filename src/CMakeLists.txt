@@ -221,7 +221,7 @@ else()
     endif()
     if(${CMAKE_SYSTEM_NAME} MATCHES "iOS")
         target_link_libraries(GL
-            "-F../../external"
+            "-F${CMAKE_CURRENT_SOURCE_DIR}/../external"
             "-framework libEGL"
             "-framework libGLESv2"
         )
