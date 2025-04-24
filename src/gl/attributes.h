@@ -1,6 +1,14 @@
 #ifndef _GL4ES_ATTRIBUTES_H_
 #define _GL4ES_ATTRIBUTES_H_
 
+#ifdef __APPLE__
+#define AliasDecl(ret, name, args, target) \
+    ret name args { return target args; }
+#else
+#define AliasDecl(ret, name, args, target) \
+    ret name args __attribute__((alias(#target)));
+#endif
+
 #ifndef EXPORT
  #if defined(__EMSCRIPTEN__) || defined(__APPLE__)
    #define EXPORT
