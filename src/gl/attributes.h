@@ -2,12 +2,14 @@
 #define _GL4ES_ATTRIBUTES_H_
 
 #ifdef __APPLE__
-#define AliasDecl(ret, name, args, target) \
-    ret name args { return target args; }
+// Trên iOS/macOS không dùng attribute alias được
+#define AliasDecl(ret, name, args_decl, args_call, target) \
+    ret name args_decl { return target args_call; }
 #else
-#define AliasDecl(ret, name, args, target) \
-    ret name args __attribute__((alias(#target)));
+#define AliasDecl(ret, name, args_decl, args_call, target) \
+    ret name args_decl __attribute__((alias(#target)));
 #endif
+
 
 #ifndef EXPORT
  #if defined(__EMSCRIPTEN__) || defined(__APPLE__)
