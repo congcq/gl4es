@@ -219,6 +219,11 @@ else()
     if(USE_ANDROID_LOG)
         target_link_libraries(GL ${log-lib})
     endif()
+    if(${CMAKE_SYSTEM_NAME} MATCHES "iOS")
+        target_link_libraries(GL
+            "-F../../external"
+            "-framework libEGL"
+            "-framework libGLESv2"
     
     if(CMAKE_SHARED_LIBRARY_SUFFIX MATCHES ".so")
         set_target_properties(GL PROPERTIES SUFFIX ".so.1")
