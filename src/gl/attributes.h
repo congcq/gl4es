@@ -12,7 +12,7 @@
 
 
 #ifndef EXPORT
- #if defined(__EMSCRIPTEN__) || defined(__APPLE__)
+ #if defined(__EMSCRIPTEN__) //|| defined(__APPLE__)
    #define EXPORT
  #elif defined(STATICLIB)
    #define EXPORT
